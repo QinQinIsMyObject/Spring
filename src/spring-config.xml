@@ -6,71 +6,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- IOC创建对象的方式之一，通过构造器（构造方法）-IOC -->
-	<bean id="stu" class="com.asu.entity.Student">
-		<constructor-arg name="sname" value="老谢" />
-	</bean>
-
-	<!-- IOC创建对象的方式之二，Setter注入 -->
-	<bean id="stu1" class="com.asu.entity.Student">
-		<!-- 常量注入 -->
-		<property name="sname" value="老李" />
-		<!--Bean对象注入 -->
-		<property name="dt" ref="dt" />
-		<!--数组注入 -->
-		<property name="likes">
-			<array>
-				<value>学习</value>
-				<value>睡觉</value>
-				<value>看书</value>
-			</array>
-		</property>
-		<!--list注入 -->
-		<property name="friends">
-			<list>
-				<value>习大大</value>
-				<value>马云</value>
-				<value>马化腾</value>
-			</list>
-		</property>
-		<!--Set注入 -->
-		<property name="games">
-			<set>
-				<value>王者</value>
-				<value>绝地求生</value>
-				<value>消消乐</value>
-			</set>
-		</property>
-		<!--Map注入 -->
-		<property name="cards">
-			<map>
-				<entry key="京东" value="777" />
-				<entry key="淘宝" value="888" />
-				<entry key="天猫" value="999" />
-			</map>
-		</property>
-		<!--null注入 -->
-		<property name="work" value="null" />
-		<!--Properties注入 -->
-		<property name="baseinfo">
-			<props>
-				<prop key="籍贯">贵州</prop>
-				<prop key="性别">男</prop>
-				<prop key="婚姻">热恋中</prop>
-			</props>
-		</property>
-	</bean>
-
-	<!--日期时间对象 -->
-	<bean id="dt" class="java.util.Date" />
-
-	<!--p命令空间注入-需要有对应的属性包括相应的set方法，而且需要在配置文件头加 入xmlns:p="http://www.springframework.org/schema/p" -->
-	<!-- 本质上是Setter注入 -->
-	<bean id="u1" class="com.asu.entity.User" p:name="小红" p:sex="女"
-		p:age="19" />
-
-	<!--c命令空间注入-要求实体类需要有相应的构造方法，需要在配置文件头部加入 xmlns:c="http://www.springframework.org/schema/c" -->
-	<!-- 本质是IOC注入 -->
-	<bean id="u2" class="com.asu.entity.User" c:name="小雨" c:sex="女"
-		c:age="20" />
+	<bean id="stuService"
+		class="com.asu.service.impl.StudentServiceImpl" p:stuDao-ref="stuDao" />
+		
+	<bean id="stuDao" class="com.asu.dao.impl.StudentDaoImpl" />
+	
 </beans>
