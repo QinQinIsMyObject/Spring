@@ -23,6 +23,11 @@ public class TestIOC {
 		Student student = (Student) ac.getBean("stu");
 		// 3、调用相应方法进行测试。
 		student.show();
+
+		// IOC创建对象-通过构造器测试
+		Student student1 = (Student) ac.getBean("stu1");
+//		Student student1 = (Student) ac.getBean(Student.class);
+		student1.show();
 	}
 
 }

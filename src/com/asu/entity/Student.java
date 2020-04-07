@@ -17,4 +17,20 @@ public class Student {
 	public void show() {
 		System.out.println("我是：" + sname);
 	}
+
+	/**
+	 * 有参构造函数
+	 */
+	public Student(String sname) {
+		super();
+		this.sname = sname;
+	}
+
+	/**
+	 * 无参构造函数
+	 */
+	public Student() {
+		super();
+	}
+
 }

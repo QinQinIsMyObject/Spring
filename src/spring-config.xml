@@ -7,5 +7,10 @@
 	<bean id="stu" class="com.asu.entity.Student">
 		<property name="sname" value="老谢"></property>
 	</bean>
-	
+
+	<!-- IOC创建对象的方式之一，通过构造器（构造方法） -->
+	<bean id="stu1" class="com.asu.entity.Student">
+		<property name="sname" value="老李"></property>
+	</bean>
+
 </beans>
